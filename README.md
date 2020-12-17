@@ -30,3 +30,25 @@ vi mysql.yml
   tasks:
     - name: "install mysql"
       package: name=mysql-server state=present
+   
+ - name: adduser
+   hosts: webserver
+   become: true
+   become_user: root
+   gather_facts: true
+   tasks:
+     -name: "add user mysql"
+      action: adduser mysql_user
+      
+vi os.yml
+---
+-  name: os update
+   hosts: webserver
+   become: true
+   task: 
+   -name : update to latest os
+   action: yum name=centos state=latest
+   notify: restart centos
+   
+   
+   
