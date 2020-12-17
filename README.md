@@ -19,3 +19,14 @@ vi /etc/hosts
 [webserver]
 192.168.0.7
 [a-c]server.example.org
+
+vi mysql.yml
+---
+- name: install mysql
+  hosts: webserver
+  become: true
+  become_user: root
+  gather_facts: true
+  tasks:
+    - name: "install mysql"
+      package: name=mysql-server state=present
