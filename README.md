@@ -18,7 +18,7 @@ vi /etc/hosts
 
 [webserver]
 192.168.0.7
-[a-c]server.example.org
+#[a-c]server.example.org
 
 vi mysql.yml
 ---
